@@ -1,0 +1,52 @@
+.home-page {
+    height: 100%;
+}
+
+.list-header {
+    width: 100%;
+}
+
+.btn-pink {
+    background-color: #ff6b81;
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    border: none;
+    opacity: 0.6;
+}
+
+.btn-white {
+    background-color: white;
+    color: #ff6b81;
+    padding: 10px;
+    border: 2px solid #ff6b81;
+    border-radius: 15px;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.btn-outline-pink {
+    background-color: white;
+    color: #ff6b81;
+    padding: 8px;
+    border: 2px solid #ff6b81;
+    border-radius: 15px;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.btn-outline-green {
+    background-color: white;
+    color: #315d54;
+    padding: 8px;
+    border: 2px solid #315d54;
+    border-radius: 15px;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.list-item {
+    margin: 10px 0;
+    box-shadow: rgba(0,0,0,0.08) 0 0 0 1px;
+}
