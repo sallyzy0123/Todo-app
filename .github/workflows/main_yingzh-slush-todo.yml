@@ -23,7 +23,7 @@ jobs:
           node-version: '18.x'
       
       - name: Change directory to todo-app-server
-        run: cd todo-app-server
+        run: cd Todo-app-server
 
       - name: npm install, build, and test
         env:
@@ -35,6 +35,7 @@ jobs:
         run: |
           npm install
           npm run build --if-present
+        
 
   build-client:
     runs-on: ubuntu-latest
@@ -54,7 +55,7 @@ jobs:
         run: |
           npm install
           npm run build --if-present
-          
+        working-directory: todo-app-client  
 
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
