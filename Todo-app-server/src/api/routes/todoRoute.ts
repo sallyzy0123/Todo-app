@@ -14,7 +14,9 @@ const router = express.Router();
 
 router
   .route('/')
-  .get(todoListGet)
+  .get(
+    passport.authenticate('jwt', {session: false}), 
+    todoListGet)
   .post(
     passport.authenticate('jwt', {session: false}), 
     body('title').trim().isLength({min:3}).escape(), 

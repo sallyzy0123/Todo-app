@@ -4,11 +4,12 @@ import pool from "../../database/db";
 import {Todo} from "../../types/DBTypes";
 import {TodoResponse} from "../../types/MessageTypes";
 
-const getAllTodos = async (): Promise<Todo[]> => {
+const getAllTodosByUser = async (userId: number): Promise<Todo[]> => {
     const result: QueryResult = await pool.query(
         `
-        SELECT * FROM todos
-        `
+        SELECT * FROM todos WHERE user_id = $1
+        `,
+        [userId]
     );
     const rows: Todo[] = result.rows;
 
@@ -89,4 +90,4 @@ const deleteTodo = async (id: number, userId: number): Promise<TodoResponse> => 
     return {message: 'Todo deleted', todo: rows[0]}
 };
 
-export {getAllTodos, getTodoById, addTodo, updateTodo, deleteTodo};
+export {getAllTodosByUser, getTodoById, addTodo, updateTodo, deleteTodo};

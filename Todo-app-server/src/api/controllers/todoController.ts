@@ -1,17 +1,22 @@
 import {NextFunction, Request, Response} from "express";
 import {Todo, User} from "../../types/DBTypes";
-import {getAllTodos, getTodoById, addTodo, updateTodo, deleteTodo} from "../models/todoModel";
+import {getAllTodosByUser, getTodoById, addTodo, updateTodo, deleteTodo} from "../models/todoModel";
 import {validationResult} from "express-validator";
 import {TodoResponse} from "../../types/MessageTypes";
 import CustomError from "../../classes/CustomError";
 
+// fetch userId from req.user to get user-own todos
 const todoListGet = async (
-    _req: Request,
+    req: Request,
     res: Response<Todo[]>,
     next: NextFunction
   ) => {
     try {
-      const todos = await getAllTodos();
+      if (!req.user) {
+        throw new CustomError('token not valid', 403);
+      }
+      const userId = (req.user as User).id;
+      const todos = await getAllTodosByUser(userId);
       res.json(todos);
     } catch (error) {
       next(error);
