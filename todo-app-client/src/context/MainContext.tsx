@@ -45,6 +45,7 @@ const MainProvider = (props: React.PropsWithChildren) => {
         if (isLoggedIn) {
           fetchTodos();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [isLoggedIn])
 
     const value: MainContextType = {
