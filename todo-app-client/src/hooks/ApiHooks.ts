@@ -3,9 +3,10 @@ import Config from "../utils/config";
 import { LoginData, RegisterData } from "../components/LoginBox";
 import {TodoData} from "../components/AddNewModal";
 
-const doFetch = axios.create({
-  baseURL: Config.API_URL,
-});
+// const doFetch = axios.create({
+//   baseURL: Config.API_URL,
+// });
+const doFetch = axios.create();
 
 // config the token in interceptor
 doFetch.interceptors.request.use(
@@ -33,7 +34,7 @@ const useTodo = () => {
   const addTodo = async (todo: TodoData) => {
     try {
       const TodoResponse = await doFetch.post(
-        `${Config.API_URL}/todos`,
+        `/todos`,
         todo,
       );
       // console.log("TodoResponse:", TodoResponse);
@@ -46,7 +47,7 @@ const useTodo = () => {
   const updateTodo = async (id: number, todo: TodoData) => {
     try {
       const todoResponse = await doFetch.put(
-        `${Config.API_URL}/todos/${id}`,
+        `/todos/${id}`,
         todo,
       );
       // console.log("todoResponse:", todoResponse);
@@ -59,7 +60,7 @@ const useTodo = () => {
   const deleteTodo = async (id: number) => {
     try {
       const todoResponse = await doFetch.delete(
-        `${Config.API_URL}/todos/${id}`,
+        `/todos/${id}`,
       );
       // console.log("todoResponse:", todoResponse);
       return todoResponse.data;
@@ -75,7 +76,7 @@ const useUser = () => {
   const postUser = async (userCredentials: RegisterData) => {
     try {
       const userResponse = await axios.post(
-        `${Config.API_URL}/users`,
+        `/users`,
         userCredentials,
       );
       // console.log("userResponse:", userResponse);
@@ -93,7 +94,7 @@ const useAuthentication = () => {
   const postLogin = async (userCredentials: LoginData) => {
     try {
       const loginResponse = await axios.post(
-        `${Config.API_URL}/auth/login`, 
+        `/auth/login`, 
         userCredentials
       );
       // console.log("loginResponse:", );
