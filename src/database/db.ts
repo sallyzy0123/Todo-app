@@ -20,7 +20,10 @@ const connectionString = process.env.NODE_ENV === 'production' ? proConfig : poo
 console.log("connectionString", connectionString);
 
 const pool = new Pool({
-    connectionString
+    connectionString,
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
 export default pool;
