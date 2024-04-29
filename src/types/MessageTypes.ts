@@ -21,5 +21,13 @@ type MessageResponse = {
       email: string;
     }
   }
+
+  type LoginResponse = MessageResponse & {
+    token: string;
+    user: {
+      id: number;
+      email: string;
+    }
+  };
   
-  export {MessageResponse, ErrorResponse, TodoResponse, UserResponse};
+  export {MessageResponse, ErrorResponse, TodoResponse, UserResponse, LoginResponse};
