@@ -1,3 +1,6 @@
 Todo-app-server/.env
 Todo-app-server/node_modules
 .DS_Store
+
+node_modules
+.env
