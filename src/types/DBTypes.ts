@@ -11,7 +11,8 @@ type Todo = {
     progress: number;
 };
 
+type UserTest = Partial<User>;
 
-export { User };
+export { User, UserTest };
 
 export { Todo };
