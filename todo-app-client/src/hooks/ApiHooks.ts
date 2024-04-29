@@ -1,13 +1,12 @@
 import axios from "axios";
-import Config from "../utils/config";
 import { LoginData, RegisterData } from "../components/LoginBox";
 import {TodoData} from "../components/AddNewModal";
+import Config from "../utils/config";
 
-// const doFetch = axios.create({
-//   baseURL: Config.API_URL,
-// });
-const doFetch = axios.create();
-
+const doFetch = axios.create({
+  baseURL: Config.API_URL,
+});
+// const doFetch = axios.create();
 // config the token in interceptor
 doFetch.interceptors.request.use(
   async (config) => {
@@ -76,7 +75,7 @@ const useUser = () => {
   const postUser = async (userCredentials: RegisterData) => {
     try {
       const userResponse = await axios.post(
-        `/users`,
+        `${Config.API_URL}/users`,
         userCredentials,
       );
       // console.log("userResponse:", userResponse);
@@ -94,7 +93,7 @@ const useAuthentication = () => {
   const postLogin = async (userCredentials: LoginData) => {
     try {
       const loginResponse = await axios.post(
-        `/auth/login`, 
+        `${Config.API_URL}/auth/login`, 
         userCredentials
       );
       // console.log("loginResponse:", );

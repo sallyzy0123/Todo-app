@@ -15,8 +15,15 @@ const poolConfig = `postgresql://${process.env.DB_USER}:${process.env.DB_PASSWOR
 
 const proConfig = process.env.DATABASE_URL;
 
+const connectionString = process.env.NODE_ENV === 'production' ? proConfig : poolConfig
+
+console.log("connectionString", connectionString);
+
 const pool = new Pool({
-    connectionString: process.env.NODE_ENV === 'production' ? proConfig : poolConfig
+    connectionString,
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
 export default pool;
