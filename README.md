@@ -15,3 +15,4 @@ The development is completed in the master branch because Heroku doesn't recogni
 
 ## Demo
 * Live demo on [Todo-app](https://yingzh-slush-todo-608de720d085.herokuapp.com/)<br>
+[![Watch the video](https://img.youtube.com/vi/7v06yD6WR3E/hqdefault.jpg)](https://www.youtube.com/watch?v=7v06yD6WR3E)
