@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3001/api/v1';
+const baseUrl = '/api/v1';
 
 const Config = {
     API_URL: baseUrl,
