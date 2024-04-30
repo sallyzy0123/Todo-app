@@ -5,14 +5,17 @@ import {User} from "../../types/DBTypes";
 import {UserResponse} from "../../types/MessageTypes";
 
 const getAllUsers = async (): Promise<User[]> => {
+    console.log('here');
     const result: QueryResult = await pool.query(
         `
         SELECT id, email
         FROM users
         `
     );
+    console.log('here 2');
     const rows: User[] = result.rows;
 
+    console.log('here3');
     if (rows.length === 0) {
         throw new CustomError('No users found', 404);
     }
