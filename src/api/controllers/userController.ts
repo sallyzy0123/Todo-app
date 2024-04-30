@@ -17,6 +17,7 @@ const userListGet = async (
       const users = await getAllUsers();
       res.json(users);
     } catch (error) {
+      console.log('error here', error);
       next(error);
     }
 };

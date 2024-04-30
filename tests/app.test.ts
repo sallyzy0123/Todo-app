@@ -23,4 +23,41 @@ describe("Testing RESTful API", () => {
       });
   });
 
+    it('should establish a successful pg db connection', async () => {
+    // Create a new connection pool
+    const pool = new Pool({
+      user: process.env.DB_USER,
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT || '5432'),
+      database: process.env.DB_DATABASE,
+      password: process.env.DB_PASSWORD,
+    });
+
+    // console.log('pool', process.env.DB_PORT, process.env.NODE_ENV);
+    // Attempt to connect to the database
+    const client = await pool.connect();
+
+    // Verify the connection
+    expect(client).toBeTruthy();
+
+    // Release the client
+    client.release();
+  });
+
+  let userId = 0;
+  it('should return array of', async () => {
+    const users: User[] = await getUser(app);
+    userId = users[0].id!;
+  });
+
+  const testUser: UserTest = {
+    "email": randomstring.generate(7) + '@user.fi',
+    "password": 'testpassword'
+  }
+
+
+  it('should create a new user', async () => {
+    await postUser(app, testUser);
+  })
+
 });

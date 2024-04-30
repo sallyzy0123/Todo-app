@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 import { LoginData, RegisterData } from "../components/LoginBox";
 import {TodoData} from "../components/AddNewModal";
 import Config from "../utils/config";
